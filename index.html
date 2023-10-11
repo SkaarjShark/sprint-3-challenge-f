@@ -85,13 +85,10 @@
         return popped
       }
       push() {
-        let newArray = []
-        let notThisInts = this.ints
+        const notThisInts = this.ints
         let newInt = this.ints[this.ints.length-1]+1
         notThisInts.push(newInt)
-        newArray.push(notThisInts)
-        newArray.push(notThisInts)
-        return newArray
+        return notThisInts
       }
       getEveryNth(nth) {
         let newArray = []
