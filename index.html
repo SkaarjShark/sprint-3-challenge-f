@@ -85,9 +85,9 @@
         return popped
       }
       push() {
-        let newInt = this.ints[this.ints.length-1]+1
-        this.ints.push(newInt)
-        return this.ints
+        let updatedInts = this.ints
+        updatedInts.push(updatedInts[updatedInts.length-1]+1)
+        return updatedInts
       }
       getEveryNth(nth) {
         let newArray = []
@@ -393,7 +393,7 @@ class NerfGun {
           try {
             const nerf = new NerfGun(3)
             nerf.toggleSafety()
-            nerf.shoot() // I honestly think this line is a mistake by the test maker. It doesn't make any sense with the context of the challenge. I know Im not suppose to make edits beyond the line, but if it's an error, then I'm gonna fix it.
+            nerf.shoot()
             actual = []
             actual.push(nerf.reload(100))
             actual.push(nerf.shoot()); actual.push(nerf.shoot())
@@ -478,7 +478,7 @@ class NerfGun {
             const farm = new AntFarm('Jess', 'Blake', 'Jess')
             farm.ants[0].health++
             actual = []
-            farm.work(); farm.work(); farm.work(); farm.work() // Another line that must be a mistake. running work this many times with their rules, of course only 1 is gonna live with 1 health!! all 3 cant live.
+            farm.work(); farm.work(); farm.work(); farm.work()
             actual.push(farm.work()); actual.push(farm.work()); actual.push(farm.work())
           } catch (err) { actual = err.message }
           return [description, expected, actual]
