@@ -119,6 +119,7 @@ class NerfGun {
     // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
     constructor(proj) {
         this.proj = proj
+        this.max = proj
     }
     safety = "on"
     shoot() {
@@ -133,10 +134,10 @@ class NerfGun {
         if (num <= 0 || typeof num !== 'number') {
             return "Error reloading!"
         }
-        if (this.proj + num <= 6) {
+        if (this.proj + num <= this.max) {
             this.proj += num
-        } else {
-            this.proj++
+        } else if (this.proj + num > this.max) {
+            this.proj = this.max
         }
         return `${this.proj} projectiles left!`
     }
