@@ -46,60 +46,64 @@
 
     // 👉 CHALLENGE 1 - Integers
     class Integers {
-      // 🧠 Constructor takes **any** number of arguments, which are integers
-      // 🧠 Instances have an `ints` property which is an array holding the integers above in the same order
-      // 🧠 Implement a `getAll` method which returns the data held in the `ints` property
-      // 🧠 Implement a `getEvens` method which returns an array with the integers that are even
-      // 🧠 Implement a `getNegatives` method which returns an array with the integers that negative
-      // 🧠 Implement a `getAllSquared` method which returns an array with the integers squared
-      // 🧠 Implement a `pop` method which removes the last integer from `ints`  and returns it
-      // 🧠 Implement a `push` method which takes an int and pushes it to the end of `ints`, and returns the updated `ints` property
-      // 🧠 Implement a `getEveryNth` method which takes an int `n` and returns an array with the ints at position 0, n, n + n, n + n + n, etc
-      // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
-      // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
-      // ❗ WARNING: note that none of the methods actually mutate the `ints` property
-    constructor(...ints) {
-      this.ints = ints
-    }
-    getAll() {
-      return this.ints
-    }
-    getEvens() {
-      let result = this.ints.filter(num => num % 2 === 0)
-      return result
-    }
-    getNegatives() {
-      let result = this.ints.filter(num => num < 0)
-      return result
-    }
-    getAllSquared() {
-      let newArray = []
-      this.ints.forEach(num => {
-        let newNum = num * num
-        newArray.push(newNum)
-      })
-      return newArray
-    }
-    pop() {
-      let popped = this.ints.pop()
-      return popped
-    }
-    push() {
-      let newInt = this.ints[this.ints.length-1]+1
-      this.ints.push(newInt)
-      return this.ints
-    }
-    getEveryNth(nth) {
-      let newArray = []
-      for (let i = 0; i < this.ints.length; i=i+nth) {
-          newArray.push(this.ints[i])
+        // 🧠 Constructor takes **any** number of arguments, which are integers
+        // 🧠 Instances have an `ints` property which is an array holding the integers above in the same order
+        // 🧠 Implement a `getAll` method which returns the data held in the `ints` property
+        // 🧠 Implement a `getEvens` method which returns an array with the integers that are even
+        // 🧠 Implement a `getNegatives` method which returns an array with the integers that negative
+        // 🧠 Implement a `getAllSquared` method which returns an array with the integers squared
+        // 🧠 Implement a `pop` method which removes the last integer from `ints`  and returns it
+        // 🧠 Implement a `push` method which takes an int and pushes it to the end of `ints`, and returns the updated `ints` property
+        // 🧠 Implement a `getEveryNth` method which takes an int `n` and returns an array with the ints at position 0, n, n + n, n + n + n, etc
+        // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
+        // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
+        // ❗ WARNING: note that none of the methods actually mutate the `ints` property
+      constructor(...ints) {
+        this.ints = ints
       }
-      return newArray
+      getAll() {
+        return this.ints
+      }
+      getEvens() {
+        let result = this.ints.filter(num => num % 2 === 0)
+        return result
+      }
+      getNegatives() {
+        let result = this.ints.filter(num => num < 0)
+        return result
+      }
+      getAllSquared() {
+        let newArray = []
+        this.ints.forEach(num => {
+          let newNum = num * num
+          newArray.push(newNum)
+        })
+        return newArray
+      }
+      pop() {
+        let popped = this.ints.pop()
+        return popped
+      }
+      push() {
+        let newArray = []
+        let notThisInts = this.ints
+        let newInt = this.ints[this.ints.length-1]+1
+        notThisInts.push(newInt)
+        newArray.push(notThisInts)
+        newArray.push(notThisInts)
+        return newArray
+      }
+      getEveryNth(nth) {
+        let newArray = []
+        for (let i = 0; i < this.ints.length; i=i+nth) {
+            newArray.push(this.ints[i])
+        }
+        return newArray
+      }
+      getAllReversed() {
+        return this.ints.reverse()
+      }
     }
-    getAllReversed() {
-      return this.ints.reverse()
-    }
-  }
     
 
 // 👉 CHALLENGE 2 NerfGun
